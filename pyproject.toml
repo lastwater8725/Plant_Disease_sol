@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "project"
+version = "0.1.0"
+description = ""
+authors = ["Jun <junun24@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8.2"
+numpy = "*"
+pandas = "*"
+matplotlib = "*"
+opencv-python = "*"
+tqdm = "*"
+torch = "*"
+torchvision = "*"
+scikit-learn = "*"
+jupyter = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
