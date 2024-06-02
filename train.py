@@ -32,7 +32,7 @@ model = CNN2RNN(max_len=24*6, embedding_dim=100, num_features=len(data_module.cs
 model.to(device)
 
 # Optimizer and loss function
-optimizer = optim.Adam(model.parameters(), lr=args.learning_rate)
+optimizer = optim.Adam(model.parameters(), lr=args.learning_rate, random_seed = 42)
 criterion = nn.CrossEntropyLoss()
 
 # Accuracy function
@@ -108,22 +108,24 @@ for epoch in range(args.epochs):
     if np.max(val_metric_plot) == val_metric_plot[-1]:
         torch.save(model.state_dict(), args.save_path)
 
-import matplotlib.pyplot as plt
+plt.switch_backend('Agg')
 
 # Save and plot training and validation loss
 plt.figure(figsize=(10, 5))
-plt.plot(loss_plot, label='Train Loss')
+plt.plot([loss.item() for loss in loss_plot], label='Train Loss')
+plt.plot([loss.item() for loss in val_loss_plot], label='Val Loss')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
-plt.title('Training Loss')
+plt.title('Training and Validation Loss')
 plt.legend()
-plt.savefig("train_loss_plot.png")
+plt.savefig("train_val_loss_plot.png")
 
 # Save and plot training and validation F1 score
 plt.figure(figsize=(10, 5))
 plt.plot(metric_plot, label='Train F1 Score')
+plt.plot(val_metric_plot, label='Val F1 Score')
 plt.xlabel('Epoch')
 plt.ylabel('F1 Score')
-plt.title('Training F1 Score')
+plt.title('Training and Validation F1 Score')
 plt.legend()
-plt.savefig("train_f1_score_plot.png")
+plt.savefig("train_val_f1_score_plot.png")

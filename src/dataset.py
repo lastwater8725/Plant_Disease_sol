@@ -115,7 +115,7 @@ class CustomDataModule:
     def split_dataset(self):
         train_files = sorted(glob.glob('data/train/train/*'))
         labels = pd.read_csv('data/train.csv')['label']
-        train, val = train_test_split(train_files, test_size=0.2, stratify=labels, random_state=42)
+        train, val = train_test_split(train_files, test_size=0.2, stratify=labels)
         return train, val
 
     def prepare_data(self):
