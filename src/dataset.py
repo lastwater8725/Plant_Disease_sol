@@ -17,7 +17,6 @@ def get_train_transforms(height: int, width: int):
     return Compose([
         CLAHE(p=0.3),
         RandomBrightnessContrast(p=0.3),
-        ColorJitter(p=0.2),
         RGBShift(p=0.2),
         RandomSnow(p=0.2),
         RandomResizedCrop(height=height, width=width, p=0.4),
@@ -25,7 +24,6 @@ def get_train_transforms(height: int, width: int):
         HorizontalFlip(p=0.2),
         VerticalFlip(p=0.2),
         Rotate(p=0.2),
-        
         Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
         ToTensorV2()
     ])

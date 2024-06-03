@@ -59,4 +59,13 @@ from src.utils import initialize, label_description
 # trial5
 - model을 efficentb4에서 resnet101으로 교체
 ![f1](f1Nloss/train_val_f1_score_plot5.png)    
-![loss](f1Nloss/train_val_loss_plot5.png)  
+![loss](f1Nloss/train_val_loss_plot5.png) 
+
+
+# 모델 프린트
+![models](models_last_layer_print.png)    
+
+# trual6
+- model에서 dropout을 제거 (model은 다시 effcientb4)
+![f1](f1Nloss/train_val_f1_score_plot6.png)    
+![loss](f1Nloss/train_val_loss_plot6.png) 
