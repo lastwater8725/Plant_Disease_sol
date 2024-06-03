@@ -9,7 +9,6 @@ class CNN_Encoder(nn.Module):
         # 원래의 분류기를 교체 (1000개 클래스에서 class_n개 클래스로)
         num_ftrs = self.model.classifier[1].in_features  # 마지막 레이어의 입력 특성 수 가져오기
 
-        self.model.classifier[0] = nn.Dropout(p=0.0)  # 새로운 선형 레이어로 교체
         self.model.classifier[1] = nn.Linear(num_ftrs, class_n)  # 새로운 선형 레이어로 교체
         print(self.model.classifier)
 
