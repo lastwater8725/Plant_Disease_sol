@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # Argument parsing
 parser = argparse.ArgumentParser()
 parser.add_argument("--device", default="cuda", help="학습에 사용되는 장치")
-parser.add_argument("--epochs", type=int, default=6, help="학습 에포크 수")
+parser.add_argument("--epochs", type=int, default=10, help="학습 에포크 수")
 parser.add_argument("--learning_rate", type=float, default=1e-4, help="학습률")
 parser.add_argument("--save_path", default="model.pth", help="모델 저장 경로")
 args = parser.parse_args()
@@ -23,7 +23,7 @@ args = parser.parse_args()
 device = torch.device(args.device)
 
 # Initialize data module
-data_module = CustomDataModule(batch_size=32)
+data_module = CustomDataModule(batch_size=16)
 
 # Initialize model
 model = CNN_Encoder(class_n=111)

@@ -3,8 +3,7 @@ import glob
 import pandas as pd
 import numpy as np
 
-def pp():
-    print('plz')
+
 
 def initialize():
     csv_features = ['내부 온도 1 평균', '내부 온도 1 최고', '내부 온도 1 최저', '내부 습도 1 평균', '내부 습도 1 최고', '내부 습도 1 최저', '내부 습도 1 최고',
