@@ -81,6 +81,5 @@ from src.utils import initialize, label_description
 ![loss](f1Nloss/train_val_loss_plotb4.png)
 
 
-# trial9
-- b0와 b4 앙상블
+
 
